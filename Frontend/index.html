@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home Page</title>
+
+    <!-- Latest compiled and minified CSS & JS -->
+    <link
+      rel="stylesheet"
+      media="screen"
+      href="//netdna.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css"
+    />
+    <script src="//code.jquery.com/jquery.js"></script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+
+    <!-- Icon for Sort function-->
+    <link
+      href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css"
+      rel="stylesheet"
+    />
+
+    <script>
+      // Check if the User is logged in. If not, return to the login page.
+      if (!localStorage.getItem("ID")) {
+        window.location.replace("Login.html");
+      }
+    </script>
+  </head>
+  <body>
+    <!-- Begin logout -->
+    <div class="row">
+      <div class="col-xs-offset-2 col-xs-9 col-sm-9 col-md-9 col-lg-9">
+        <br />
+        <div class="col-xs-offset-10 col-xs-2 col-sm-2 col-md-2 col-lg-2">
+          <button
+            type="button"
+            class="btn btn-info glyphicon glyphicon-log-out"
+            id="logout_btn"
+            onclick="logoutSuccess()"
+          >
+            Logout
+          </button>
+        </div>
+        <!-- End logout -->
+
+        <!-- Begin QLNV form -->
+        <div class="row">
+          <form action="#">
+            <h2>Quản lý nhân viên</h2>
+
+            <div class="form-group">
+              <label for="ID">ID:</label>
+              <input
+                type="number"
+                class="form-control"
+                required
+                placeholder="Enter ID"
+                id="ID"
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="email">Email:</label>
+              <input
+                type="email"
+                class="form-control"
+                required
+                placeholder="Enter Email"
+                id="email"
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="userName">Username:</label>
+              <input
+                type="text"
+                class="form-control"
+                required
+                placeholder="Enter Username"
+                id="userName"
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="fullName">Fullname:</label>
+              <input
+                type="text"
+                class="form-control"
+                required
+                placeholder="Enter Fullname"
+                id="fullName"
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="sel1">Select a Department:</label>
+              <select class="form-control" id="Department_ID">
+                <option>--Select a Department--</option>
+                <!-- <option>Accounting</option>
+                <option>Business Development</option>
+                <option>Engineering</option>
+                <option>Human Resources</option>
+                <option>Research and Development</option> -->
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="sel1">Select a Position:</label>
+              <select class="form-control" id="Position_ID">
+                <option>--Select a Position--</option>
+                <!-- <option>Developer</option>
+                <option>Tester</option>
+                <option>Scrum Master</option>
+                <option>PM</option> -->
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="createDate">Create Date:</label>
+              <input
+                type="date"
+                class="form-control"
+                required
+                placeholder="dd/mm/yyyy"
+                id="createDate"
+              />
+            </div>
+
+            <div class="form-group">
+              <button type="button" class="btn btn-success" id="save_btn">
+                Save
+              </button>
+
+              <button type="submit" class="btn btn-success" id="update_btn">
+                Update
+              </button>
+
+              <button type="button" class="btn btn-success" id="reset_btn">
+                Reset
+              </button>
+            </div>
+          </form>
+        </div>
+        <!-- End QLNV form -->
+
+        <br />
+
+        <form>
+          <div class="input-group">
+            <input
+              type="search"
+              class="form-control"
+              placeholder="Search by Email, FullName, Department"
+              id="input-search"
+            />
+            <div class="input-group-btn">
+              <button
+                class="btn btn-default"
+                type="button"
+                id="myBtn"
+                onclick="handleSearch()"
+              >
+                <i class="glyphicon glyphicon-search"></i>
+              </button>
+            </div>
+          </div>
+        </form>
+
+        <br />
+
+        <div class="row">
+          <form action="#">
+            <h2>Thông tin nhân viên trên hệ thống</h2>
+
+            <div class="table-responsive">
+              <table class="table table-hover">
+                <thead>
+                  <tr>
+                    <th>
+                      ID
+                      <i
+                        class="fa fa-fw fa-sort"
+                        onclick="changeSort('id')"
+                      ></i>
+                    </th>
+                    <th>
+                      Email
+                      <i
+                        class="fa fa-fw fa-sort"
+                        onclick="changeSort('email')"
+                      ></i>
+                    </th>
+                    <th>
+                      Username
+                      <i
+                        class="fa fa-fw fa-sort"
+                        onclick="changeSort('username')"
+                      ></i>
+                    </th>
+                    <th>
+                      Fullname
+                      <i
+                        class="fa fa-fw fa-sort"
+                        onclick="changeSort('fullname')"
+                      ></i>
+                    </th>
+                    <th>
+                      Department
+                      <i
+                        class="fa fa-fw fa-sort"
+                        onclick="changeSort('department.name')"
+                      ></i>
+                    </th>
+                    <th>
+                      Position
+                      <i
+                        class="fa fa-fw fa-sort"
+                        onclick="changeSort('position.name')"
+                      ></i>
+                    </th>
+                    <th>
+                      Create Date
+                      <i
+                        class="fa fa-fw fa-sort"
+                        onclick="changeSort('createDate')"
+                      ></i>
+                    </th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                    <th>
+                      <button
+                        type="button"
+                        class="btn btn-danger"
+                        onclick="deleteAll()"
+                      >
+                        Delete All
+                      </button>
+                    </th>
+                  </tr>
+                </thead>
+                <tbody id="resultSet_tbody"></tbody>
+              </table>
+
+              <nav aria-label="Page navigation example">
+                <ul class="pagination" id="pagination">
+                  <!-- <li class="page-item">
+                    <a class="page-link" href="#">Previous</a>
+                  </li>
+                  <li class="page-item"><a class="page-link" href="#">1</a></li>
+                  <li class="page-item"><a class="page-link" href="#">2</a></li>
+                  <li class="page-item"><a class="page-link" href="#">3</a></li>
+                  <li class="page-item">
+                    <a class="page-link" href="#">Next</a>
+                  </li> -->
+                </ul>
+              </nav>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <script type="text/javascript" src="assets/js/QLNV.js"></script>
+    <script type="text/javascript" src="assets/js/Logout.js"></script>
+  </body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login Page</title>
+
+    <!-- Latest compiled and minified CSS & JS -->
+    <link
+      rel="stylesheet"
+      media="screen"
+      href="//netdna.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css"
+    />
+    <script src="//code.jquery.com/jquery.js"></script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+  </head>
+  <body>
+    <div class="row">
+      <div class="col-xs-offset-2 col-xs-8 col-sm-8 col-md-8 col-lg-8">
+        <h2>LOGIN</h2>
+
+        <form action="#">
+          <div class="form-group">
+            <!-- <label for="email">Email:</label> -->
+            <label for="username">UserName:</label>
+            <input
+              type="text"
+              class="form-control"
+              required
+              placeholder="Enter UserName"
+              id="username"
+            />
+          </div>
+          <div class="form-group">
+            <label for="password">Password:</label>
+            <input
+              type="password"
+              class="form-control"
+              required
+              placeholder="Enter Password"
+              id="password"
+            />
+          </div>
+        </form>
+
+        <div class="row">
+          <button
+            type="button"
+            class="btn btn-info"
+            id="login_btn"
+            onclick="loginSuccess()"
+          >
+            Login
+          </button>
+
+          <button
+            type="button"
+            class="btn btn-info"
+            id="register_btn"
+            onclick="goToRegisterPage()"
+          >
+            Register
+          </button>
+        </div>
+      </div>
+    </div>
+    <script type="text/javascript" src="assets/js/Login.js"></script>
+    <!-- <script type="text/javascript" src="assets/js/Register.js"></script> -->
+  </body>
+</html>

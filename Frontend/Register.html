@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Register Page</title>
+
+    <!-- Latest compiled and minified CSS & JS -->
+    <link
+      rel="stylesheet"
+      media="screen"
+      href="//netdna.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css"
+    />
+    <script src="//code.jquery.com/jquery.js"></script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+  </head>
+  <body>
+    <div class="row">
+      <div class="col-xs-offset-2 col-xs-8 col-sm-8 col-md-8 col-lg-8">
+        <form action="#">
+          <h2>Register System</h2>
+
+          <div class="form-group">
+            <label for="fullName">FullName:</label>
+            <input
+              type="text"
+              class="form-control"
+              required
+              placeholder="Enter FullName"
+              id="fullName"
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email:</label>
+            <input
+              type="email"
+              class="form-control"
+              required
+              placeholder="Enter Email"
+              id="email"
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="username">UserName:</label>
+            <input
+              type="text"
+              class="form-control"
+              required
+              placeholder="Enter UserName"
+              id="username"
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="password">Password:</label>
+            <input
+              type="password"
+              class="form-control"
+              required
+              placeholder="Enter Password"
+              id="password"
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="re_password">Confirmation Password:</label>
+            <input
+              type="password"
+              class="form-control"
+              required
+              placeholder="Enter Password"
+              id="re_password"
+            />
+          </div>
+
+          <!-- <div class="form-group">
+            <label for="birthday">Birthday:</label>
+            <input
+              type="date"
+              class="form-control"
+              required
+              placeholder="dd/mm/yyyy"
+              id="birthday"
+            />
+          </div> -->
+
+          <div class="form-group">
+            <button type="button" class="btn btn-success" id="register_btn">
+              Register
+            </button>
+
+            <button type="button" class="btn btn-success" id="reset_btn">
+              Reset
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <script type="text/javascript" src="assets/js/Register.js"></script>
+  </body>
+</html>
